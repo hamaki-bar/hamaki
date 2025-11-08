@@ -136,7 +136,7 @@
             border: 2px solid transparent;
             border-image: linear-gradient(45deg, var(--secondary), var(--accent)) 1;
             border-radius: 16px;
-            padding: 22px;
+            padding: 25px 20px 20px 20px;
             margin-bottom: 22px;
             transition: all 0.4s ease;
             position: relative;
@@ -154,27 +154,27 @@
         }
         
         .cigar-card:hover {
-            transform: translateY(-8px) scale(1.02);
+            transform: translateY(-8px);
             box-shadow: 0 15px 35px rgba(255, 107, 53, 0.2);
         }
 
         .cigar-name {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: var(--secondary);
-            margin-bottom: 14px;
+            margin: 45px 0 15px 0;
             line-height: 1.3;
             border-bottom: 2px solid transparent;
             border-image: linear-gradient(90deg, transparent, var(--secondary), transparent) 1;
-            padding-bottom: 10px;
+            padding-bottom: 12px;
             text-align: center;
         }
 
         .cigar-price {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: var(--text-light);
             font-weight: 800;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             text-align: center;
             background: linear-gradient(45deg, var(--secondary), var(--gold));
             -webkit-background-clip: text;
@@ -185,10 +185,10 @@
         .cigar-notes {
             font-style: italic;
             color: var(--text-muted);
-            margin-top: 14px;
-            font-size: 0.85rem;
-            line-height: 1.4;
-            padding: 12px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            padding: 15px;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
             border-left: 4px solid var(--secondary);
@@ -196,29 +196,37 @@
 
         .origin-badge {
             position: absolute;
-            top: 18px;
-            right: 18px;
+            top: 15px;
+            right: 15px;
             background: linear-gradient(45deg, var(--secondary), var(--gold));
             color: var(--dark);
             padding: 6px 12px;
             border-radius: 20px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 700;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             z-index: 2;
+            max-width: 80px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
         }
 
         .strength-badge {
             position: absolute;
-            top: 18px;
-            left: 18px;
+            top: 15px;
+            left: 15px;
             color: var(--light);
             padding: 6px 12px;
             border-radius: 20px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 700;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             z-index: 2;
+            max-width: 80px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
         }
         
         .strength-suave { background: linear-gradient(45deg, var(--success), #06D6A0); }
@@ -277,52 +285,11 @@
             font-weight: 700;
         }
 
-        .cigar-image {
-            height: 160px;
-            background: linear-gradient(135deg, 
-                rgba(139, 69, 19, 0.15) 0%, 
-                rgba(193, 154, 107, 0.1) 50%,
-                rgba(212, 175, 55, 0.1) 100%);
-            border-radius: 12px;
-            margin-bottom: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid transparent;
-            border-image: linear-gradient(45deg, var(--secondary), var(--accent)) 1;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .cigar-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: crisp-edges;
-        }
-
-        .cigar-card:hover .cigar-image img {
-            transform: scale(1.1);
-        }
-
-        .flag-overlay {
-            position: absolute;
-            bottom: 8px;
-            right: 8px;
-            width: 50px;
-            height: 30px;
-            border-radius: 3px;
-            border: 2px solid var(--light);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-        }
-
         .stats-bar {
             display: flex;
             justify-content: space-between;
-            margin-top: 18px;
-            padding-top: 18px;
+            margin-top: 20px;
+            padding-top: 20px;
             border-top: 2px solid transparent;
             border-image: linear-gradient(90deg, transparent, var(--secondary), transparent) 1;
         }
@@ -503,6 +470,15 @@
             .nav-tabs .nav-link {
                 padding: 10px 15px;
                 font-size: 0.9rem;
+            }
+            .cigar-card {
+                padding: 20px 15px 15px 15px;
+            }
+            .origin-badge,
+            .strength-badge {
+                font-size: 0.65rem;
+                padding: 5px 10px;
+                max-width: 70px;
             }
         }
     </style>
@@ -727,7 +703,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // DATOS COMPLETOS DE TODOS LOS PUROS EXTRAÍDOS DEL CÓDIGO ANTERIOR
+        // DATOS COMPLETOS DE TODOS LOS PUROS SIN IMÁGENES
         const cigars = [
             // Puros Mexicanos
             {
@@ -737,8 +713,6 @@
                 size: "4.5x33",
                 origin: "mexico",
                 notes: "Tabaco mexicano de alta calidad en formato panetela",
-                flagImage: "https://images.unsplash.com/photo-1623517279997-31e43502a7c7?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/mx.png",
                 isBox: false
             },
             {
@@ -748,8 +722,6 @@
                 size: "6x52",
                 origin: "mexico",
                 notes: "Formato torpedo con tabaco de San Andrés Tuxtla",
-                flagImage: "https://images.unsplash.com/photo-1623517279997-31e43502a7c7?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/mx.png",
                 isBox: false
             },
             {
@@ -759,8 +731,6 @@
                 size: "4x50",
                 origin: "mexico",
                 notes: "Short robusto con blend de tripa corta san andrés",
-                flagImage: "https://images.unsplash.com/photo-1623517279997-31e43502a7c7?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/mx.png",
                 isBox: false
             },
             {
@@ -770,8 +740,6 @@
                 size: "5x50",
                 origin: "mexico",
                 notes: "Minerales, cuero, tierra, café tostado",
-                flagImage: "https://images.unsplash.com/photo-1623517279997-31e43502a7c7?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/mx.png",
                 isBox: false
             },
             {
@@ -781,8 +749,6 @@
                 size: "5x50",
                 origin: "mexico",
                 notes: "Blend san andrés habano y sumatra de tripa corta",
-                flagImage: "https://images.unsplash.com/photo-1623517279997-31e43502a7c7?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/mx.png",
                 isBox: false
             },
             {
@@ -792,8 +758,6 @@
                 size: "5x50",
                 origin: "mexico",
                 notes: "Edición especial en formato robusto",
-                flagImage: "https://images.unsplash.com/photo-1623517279997-31e43502a7c7?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/mx.png",
                 isBox: false
             },
             {
@@ -803,8 +767,6 @@
                 size: "5x50",
                 origin: "mexico",
                 notes: "Tabaco cosecha 1999, notas de almendras y chocolate",
-                flagImage: "https://images.unsplash.com/photo-1623517279997-31e43502a7c7?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/mx.png",
                 isBox: false
             },
             {
@@ -814,8 +776,6 @@
                 size: "4x60",
                 origin: "mexico",
                 notes: "Gordito con característico color colorado",
-                flagImage: "https://images.unsplash.com/photo-1623517279997-31e43502a7c7?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/mx.png",
                 isBox: false
             },
             {
@@ -825,8 +785,6 @@
                 size: "5.25x55",
                 origin: "mexico",
                 notes: "Clavo, canela, pimienta, café, chocolate - blend bien balanceado",
-                flagImage: "https://images.unsplash.com/photo-1623517279997-31e43502a7c7?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/mx.png",
                 isBox: false
             },
             {
@@ -836,8 +794,6 @@
                 size: "4x60",
                 origin: "mexico",
                 notes: "Madera, tierra, musgo, chocolate, pimienta, canela y hierbas",
-                flagImage: "https://images.unsplash.com/photo-1623517279997-31e43502a7c7?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/mx.png",
                 isBox: false
             },
             {
@@ -847,54 +803,44 @@
                 size: "5.66x50",
                 origin: "mexico",
                 notes: "Opción diferente a habanos con sabores similares",
-                flagImage: "https://images.unsplash.com/photo-1623517279997-31e43502a7c7?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/mx.png",
                 isBox: false
             },
 
             // Puros Cubanos
             {
                 name: "QUAI DORSAY .54",
-                price: "$7000 caja",
+                price: "$750 / 7500 caja",
                 strength: "Suave",
                 size: "4.5x54",
                 origin: "cuba",
                 notes: "Edmundo grueso de origen cubano",
-                flagImage: "https://images.unsplash.com/photo-1612540231645-9d80e43c2a04?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/cu.png",
                 isBox: true
             },
             {
                 name: "MONTE CRISTO WIDE EDMUNDO",
-                price: "$850 / $14000 caja",
+                price: "$850 / $21000 caja",
                 strength: "Media-Fuerte",
                 size: "5x54",
                 origin: "cuba",
                 notes: "Clásico cubano de gran prestigio mundial",
-                flagImage: "https://images.unsplash.com/photo-1612540231645-9d80e43c2a04?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/cu.png",
                 isBox: true
             },
             {
                 name: "PARTAGAS SERIE D NO. 4",
-                price: "$800 / $14000 caja",
+                price: "$800 / $20000 caja",
                 strength: "Fuerte",
                 size: "5x50",
                 origin: "cuba",
                 notes: "Vuelta abajo, fortaleza intensa con sabor profundo",
-                flagImage: "https://images.unsplash.com/photo-1612540231645-9d80e43c2a04?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/cu.png",
                 isBox: true
             },
             {
                 name: "FLOR DE CANO (Elegidos)",
-                price: "$300 / $2000 caja",
+                price: "$300 / $3000 caja",
                 strength: "Media",
                 size: "5x50",
                 origin: "cuba",
                 notes: "Tabaco de vuelta abajo y semi vuelta, elaboración artesanal",
-                flagImage: "https://images.unsplash.com/photo-1612540231645-9d80e43c2a04?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/cu.png",
                 isBox: true
             },
             {
@@ -904,8 +850,6 @@
                 size: "5x50",
                 origin: "cuba",
                 notes: "Totalmente hecho a mano, terroso, amaderado, cuero",
-                flagImage: "https://images.unsplash.com/photo-1612540231645-9d80e43c2a04?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/cu.png",
                 isBox: false
             },
 
@@ -917,8 +861,6 @@
                 size: "Robusto",
                 origin: "nicaragua",
                 notes: "Robusto de alta calidad",
-                flagImage: "https://images.unsplash.com/photo-1593536721035-8cdf50dc4f2f?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/ni.png",
                 isBox: true
             },
             {
@@ -928,8 +870,6 @@
                 size: "6x54",
                 origin: "nicaragua",
                 notes: "Cremoso, pimienta, café tostado, canela - A.J. Fernandez",
-                flagImage: "https://images.unsplash.com/photo-1593536721035-8cdf50dc4f2f?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/ni.png",
                 isBox: false
             },
             {
@@ -939,8 +879,6 @@
                 size: "4.25x50",
                 origin: "nicaragua",
                 notes: "Cuero, pimienta, cacao, almendra, cedro",
-                flagImage: "https://images.unsplash.com/photo-1593536721035-8cdf50dc4f2f?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/ni.png",
                 isBox: false
             },
             {
@@ -950,8 +888,6 @@
                 size: "6x60",
                 origin: "nicaragua",
                 notes: "Chocolate, café espresso - Tributo a México",
-                flagImage: "https://images.unsplash.com/photo-1593536721035-8cdf50dc4f2f?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/ni.png",
                 isBox: false
             },
             {
@@ -961,8 +897,6 @@
                 size: "6x50",
                 origin: "nicaragua",
                 notes: "Capa corojo ecuatoriano, toque picante, premium accesible",
-                flagImage: "https://images.unsplash.com/photo-1593536721035-8cdf50dc4f2f?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/ni.png",
                 isBox: false
             },
             {
@@ -972,8 +906,6 @@
                 size: "5x56",
                 origin: "nicaragua",
                 notes: "Cremoso, pimienta, granos tostados, chocolate",
-                flagImage: "https://images.unsplash.com/photo-1593536721035-8cdf50dc4f2f?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/ni.png",
                 isBox: false
             },
             {
@@ -983,8 +915,6 @@
                 size: "Robusto",
                 origin: "nicaragua",
                 notes: "Robusto de la línea Silver",
-                flagImage: "https://images.unsplash.com/photo-1593536721035-8cdf50dc4f2f?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/ni.png",
                 isBox: true
             },
             {
@@ -994,8 +924,6 @@
                 size: "5.5x54",
                 origin: "nicaragua",
                 notes: "Picante, cuero, cedro, café, caramelo - A.J. Fernandez",
-                flagImage: "https://images.unsplash.com/photo-1593536721035-8cdf50dc4f2f?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/ni.png",
                 isBox: false
             },
             {
@@ -1005,8 +933,6 @@
                 size: "4.5x52",
                 origin: "nicaragua",
                 notes: "Tierra, chocolate oscuro, pimienta, cremoso y dulce",
-                flagImage: "https://images.unsplash.com/photo-1593536721035-8cdf50dc4f2f?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/ni.png",
                 isBox: false
             },
             {
@@ -1016,8 +942,6 @@
                 size: "5x54",
                 origin: "nicaragua",
                 notes: "Pimienta, cedro, cuero, café - mucha fortaleza y cuerpo",
-                flagImage: "https://images.unsplash.com/photo-1593536721035-8cdf50dc4f2f?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/ni.png",
                 isBox: false
             },
             {
@@ -1027,8 +951,6 @@
                 size: "5x52",
                 origin: "nicaragua",
                 notes: "Chocolate, crema, pimienta - tripa piloto cubano",
-                flagImage: "https://images.unsplash.com/photo-1593536721035-8cdf50dc4f2f?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/ni.png",
                 isBox: false
             },
             {
@@ -1038,8 +960,6 @@
                 size: "5x54",
                 origin: "nicaragua",
                 notes: "Cedro, pimienta - capa sun grown habano",
-                flagImage: "https://images.unsplash.com/photo-1593536721035-8cdf50dc4f2f?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/ni.png",
                 isBox: false
             },
             {
@@ -1049,8 +969,6 @@
                 size: "5x54",
                 origin: "nicaragua",
                 notes: "Cacao, café, nuez moscada, aceitoso, pimienta",
-                flagImage: "https://images.unsplash.com/photo-1593536721035-8cdf50dc4f2f?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/ni.png",
                 isBox: false
             },
             {
@@ -1060,8 +978,6 @@
                 size: "6x60",
                 origin: "nicaragua",
                 notes: "Cedro, tabaco crudo, toque dulce - ideal para maridar",
-                flagImage: "https://images.unsplash.com/photo-1593536721035-8cdf50dc4f2f?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/ni.png",
                 isBox: false
             },
             {
@@ -1071,8 +987,6 @@
                 size: "4.5x52 - 6x60",
                 origin: "nicaragua",
                 notes: "Cuban sandwich blend - tira muy bien, buena ceniza",
-                flagImage: "https://images.unsplash.com/photo-1593536721035-8cdf50dc4f2f?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/ni.png",
                 isBox: false
             },
             {
@@ -1082,8 +996,6 @@
                 size: "6x60",
                 origin: "nicaragua",
                 notes: "Sedoso, picante - Foundation Cigars, bien balanceado",
-                flagImage: "https://images.unsplash.com/photo-1593536721035-8cdf50dc4f2f?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/ni.png",
                 isBox: false
             },
             {
@@ -1093,8 +1005,6 @@
                 size: "6x50",
                 origin: "nicaragua",
                 notes: "Café tostado, chocolate, tabaco maduro - no decepciona",
-                flagImage: "https://images.unsplash.com/photo-1593536721035-8cdf50dc4f2f?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/ni.png",
                 isBox: false
             },
 
@@ -1106,8 +1016,6 @@
                 size: "6x52",
                 origin: "honduras",
                 notes: "Cremoso, cedro, canela, cocoa - valle de Talanga",
-                flagImage: "https://images.unsplash.com/photo-1573756037566-7bffe72c7fdb?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/hn.png",
                 isBox: false
             },
             {
@@ -1117,8 +1025,6 @@
                 size: "5.5x54",
                 origin: "honduras",
                 notes: "Proceso de fermentación especial - 2 años maduración",
-                flagImage: "https://images.unsplash.com/photo-1573756037566-7bffe72c7fdb?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/hn.png",
                 isBox: false
             },
             {
@@ -1128,8 +1034,6 @@
                 size: "5x54",
                 origin: "honduras",
                 notes: "Terroso, dulce, maduro picante - serie B de Villazón",
-                flagImage: "https://images.unsplash.com/photo-1573756037566-7bffe72c7fdb?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/hn.png",
                 isBox: false
             },
             {
@@ -1139,8 +1043,6 @@
                 size: "6x54",
                 origin: "honduras",
                 notes: "Cedro, nueces, especies - capa criolla original de Cuba",
-                flagImage: "https://images.unsplash.com/photo-1573756037566-7bffe72c7fdb?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/hn.png",
                 isBox: false
             },
             {
@@ -1150,8 +1052,6 @@
                 size: "6x52",
                 origin: "honduras",
                 notes: "Cuero, musgo, madera - precio accesible, buena calidad",
-                flagImage: "https://images.unsplash.com/photo-1573756037566-7bffe72c7fdb?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/hn.png",
                 isBox: false
             },
             {
@@ -1161,8 +1061,6 @@
                 size: "6x60",
                 origin: "honduras",
                 notes: "Blend cuban sandwich - simple y suave",
-                flagImage: "https://images.unsplash.com/photo-1573756037566-7bffe72c7fdb?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/hn.png",
                 isBox: false
             },
             {
@@ -1172,8 +1070,6 @@
                 size: "4.25x52",
                 origin: "honduras",
                 notes: "Notas aceitosas, capa habano 2000 - bien hecho",
-                flagImage: "https://images.unsplash.com/photo-1573756037566-7bffe72c7fdb?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/hn.png",
                 isBox: false
             },
 
@@ -1185,8 +1081,6 @@
                 size: "6x50",
                 origin: "dominicana",
                 notes: "Cremoso, madera, trigo - ideal principiantes",
-                flagImage: "https://images.unsplash.com/photo-1573756037566-7bffe72c7fdb?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/do.png",
                 isBox: false
             },
             {
@@ -1196,8 +1090,6 @@
                 size: "6x60",
                 origin: "dominicana",
                 notes: "Blend cuban sandwich - tripa corta y larga",
-                flagImage: "https://images.unsplash.com/photo-1573756037566-7bffe72c7fdb?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/do.png",
                 isBox: false
             },
             {
@@ -1207,8 +1099,6 @@
                 size: "6x50",
                 origin: "dominicana",
                 notes: "Edición limitada - 7 años añejamiento, blend complejo",
-                flagImage: "https://images.unsplash.com/photo-1573756037566-7bffe72c7fdb?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/do.png",
                 isBox: false
             },
 
@@ -1220,8 +1110,6 @@
                 size: "5.5x49",
                 origin: "usa",
                 notes: "Chocolate, canela, pimienta - J.C. Newman, línea económica",
-                flagImage: "https://images.unsplash.com/photo-1589998059171-988d887df646?w=600&h=400&fit=crop&q=80&auto=format",
-                countryFlag: "https://flagcdn.com/w160/us.png",
                 isBox: false
             }
         ];
@@ -1248,12 +1136,6 @@
                             </div>
                             <div class="strength-badge ${strengthClass}">
                                 ${cigar.strength}
-                            </div>
-                            
-                            <div class="cigar-image">
-                                <img src="${cigar.flagImage}" alt="${cigar.name}" 
-                                     onerror="this.src='https://images.unsplash.com/photo-1612540231645-9d80e43c2a04?w=600&h=400&fit=crop&q=80&auto=format'">
-                                <img src="${cigar.countryFlag}" alt="${cigar.origin}" class="flag-overlay">
                             </div>
                             
                             <h3 class="cigar-name">${cigar.name}</h3>
